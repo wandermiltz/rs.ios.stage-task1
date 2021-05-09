@@ -4,7 +4,7 @@
 
 - (NSArray *)numberConverter:(NSNumber *)number {
     
-    NSMutableArray *reversedArray = [NSMutableArray new];
+    NSMutableArray *resultArray = [NSMutableArray new];
 
     if (number == nil) {
         return @[];
@@ -16,12 +16,12 @@
      }
     
     while(unsignedNumber) {
-        int remainder = unsignedNumber % 10;
-        [reversedArray addObject:[NSString stringWithFormat:@"%u", remainder]];
-        unsignedNumber = (unsignedNumber - remainder) / 10;
+        int decimalPart = unsignedNumber % 10;
+        [resultArray addObject:[NSString stringWithFormat:@"%u", decimalPart]];
+        unsignedNumber = (unsignedNumber - decimalPart) / 10;
     }
     
-    return reversedArray;
+    return resultArray;
 }
 
 @end
